@@ -80,40 +80,40 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Generate valid claims, verify tokens have correct role and expiry; verify expired/invalidated tokens fail validation
     - **Validates: Requirements 1.1, 1.8, 8.1, 8.3, 8.6**
 
-- [ ] 4. Repository layer
-  - [ ] 4.1 Implement account repository
+- [x] 4. Repository layer
+  - [x] 4.1 Implement account repository
     - Create `/internal/repository/account_repository.go` with interface and sqlx implementation
     - Implement: GetByUsername, GetByAccountNo, Exists, UsernameExists, Create (with *sqlx.Tx), UpdatePassword
     - Use parameterized queries exclusively
     - _Requirements: 1.1, 2.1, 2.3, 10.1_
 
-  - [ ] 4.2 Implement customer and address repositories
+  - [x] 4.2 Implement customer and address repositories
     - Create `/internal/repository/customer_repository.go` and `address_repository.go`
     - CustomerRepository: GetByAccountNo, Create (with *sqlx.Tx), Update, ListAll with pagination
     - AddressRepository: Create (with *sqlx.Tx), GetByAccountNo, Update
     - _Requirements: 2.1, 6.1, 6.2, 9.1_
 
-  - [ ] 4.3 Implement transaction and balance repositories
+  - [x] 4.3 Implement transaction and balance repositories
     - Create `/internal/repository/transaction_repository.go` and balance operations within it
     - TransactionRepository: Create (with *sqlx.Tx), GetByAccountNo, GetAll, GetSummary, GetMonthlySummary
     - BalanceRepository: GetByAccountNo, Credit (with *sqlx.Tx), Debit (with *sqlx.Tx), Create (with *sqlx.Tx)
     - All balance operations use `SELECT ... FOR UPDATE` within transactions
     - _Requirements: 3.1, 3.2, 3.3, 4.1, 4.7, 9.2, 9.5_
 
-  - [ ] 4.4 Implement request, feedback, and login history repositories
+  - [x] 4.4 Implement request, feedback, and login history repositories
     - Create `/internal/repository/request_repository.go`, `feedback_repository.go`, `login_history_repository.go`
     - RequestRepository: Create, GetReceivedByAccountNo, MarkAsViewed, GetAll
     - FeedbackRepository: Create, GetAll
     - LoginHistoryRepository: RecordLogin, RecordLogout, GetByAccountNo, GetAll, GetLatestByAccountNo
     - _Requirements: 5.1, 5.6, 5.7, 7.1, 9.6, 9.7, 14.1, 14.2, 14.3_
 
-  - [ ] 4.5 Implement admin and account type repositories
+  - [x] 4.5 Implement admin and account type repositories
     - Create `/internal/repository/admin_repository.go` and `account_type_repository.go`
     - AdminRepository: GetByID, GetByEmail
     - AccountTypeRepository: Create (with *sqlx.Tx), GetByAccountNo
     - _Requirements: 8.1, 2.1_
 
-- [ ] 5. Checkpoint - Ensure all repository code compiles
+- [x] 5. Checkpoint - Ensure all repository code compiles
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 6. Service layer - Authentication

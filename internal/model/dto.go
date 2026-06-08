@@ -73,9 +73,9 @@ type BalanceAdjustmentRequest struct {
 
 // TransactionSummary holds aggregated transaction statistics.
 type TransactionSummary struct {
-	TransactionCount int64 `json:"transaction_count"`
-	TotalCredit      int64 `json:"total_credit"`
-	TotalDebit       int64 `json:"total_debit"`
+	TransactionCount int64 `db:"transaction_count" json:"transaction_count"`
+	TotalCredit      int64 `db:"total_credit" json:"total_credit"`
+	TotalDebit       int64 `db:"total_debit" json:"total_debit"`
 }
 
 // DashboardResponse contains dashboard data for a customer account.
