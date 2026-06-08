@@ -116,8 +116,8 @@ This implementation plan converts the PHP online banking monolith into a modern 
 - [x] 5. Checkpoint - Ensure all repository code compiles
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 6. Service layer - Authentication
-  - [ ] 6.1 Implement auth service
+- [x] 6. Service layer - Authentication
+  - [x] 6.1 Implement auth service
     - Create `/internal/service/auth_service.go` with AuthService interface and implementation
     - Inject AccountRepository, AdminRepository, LoginHistoryRepository, PasswordHasher, TokenManager
     - Implement CustomerLogin: validate credentials, check lockout, generate JWT, record login history with IP
@@ -141,8 +141,8 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Test expired token rejection
     - _Requirements: 1.1, 1.3, 1.4, 1.8, 8.1, 8.6_
 
-- [ ] 7. Service layer - Account and Dashboard
-  - [ ] 7.1 Implement account service
+- [x] 7. Service layer - Account and Dashboard
+  - [x] 7.1 Implement account service
     - Create `/internal/service/account_service.go` with AccountService interface and implementation
     - Inject AccountRepository, CustomerRepository, AddressRepository, AccountTypeRepository, BalanceRepository, PasswordHasher
     - Implement Register: validate input, check username uniqueness, generate 9-digit account number, hash password, create all records in single transaction, initialize balance to 0
@@ -157,7 +157,7 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Generate random registrations, verify 9-digit uniqueness and zero balance; verify profile updates don't change account_no/username/account_type
     - **Validates: Requirements 2.6, 2.7, 6.2**
 
-  - [ ] 7.3 Implement dashboard service
+  - [x] 7.3 Implement dashboard service
     - Create `/internal/service/dashboard_service.go` with DashboardService interface and implementation
     - Inject TransactionRepository, BalanceRepository
     - Implement GetDashboard: aggregate all-time stats + current month stats + current balance
@@ -171,8 +171,8 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Generate random transaction sets, verify sums and counts; verify pagination metadata correctness
     - **Validates: Requirements 3.1, 3.2, 3.3, 3.6, 13.4, 13.5**
 
-- [ ] 8. Service layer - Transfer
-  - [ ] 8.1 Implement transfer service
+- [x] 8. Service layer - Transfer
+  - [x] 8.1 Implement transfer service
     - Create `/internal/service/transfer_service.go` with TransferService interface and implementation
     - Inject AccountRepository, BalanceRepository, TransactionRepository
     - Implement QuickTransfer: validate amount limits (500-20000), verify destination exists, prevent self-transfer, check sufficient balance, execute atomic debit+credit in single DB transaction, record both transaction entries
@@ -194,8 +194,8 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Test rollback on DB failure
     - _Requirements: 4.1, 4.7, 4.8_
 
-- [ ] 9. Service layer - Request, Feedback, Admin
-  - [ ] 9.1 Implement request service
+- [x] 9. Service layer - Request, Feedback, Admin
+  - [x] 9.1 Implement request service
     - Create `/internal/service/request_service.go` with RequestService interface and implementation
     - Inject RequestRepository, AccountRepository
     - Implement CreateRequest: validate amount limits, verify target account exists, prevent self-request, create with PENDING status
@@ -211,7 +211,7 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Generate random request scenarios; verify status is PENDING, rejection on invalid amounts/self-request/message length
     - **Validates: Requirements 5.1, 5.2, 5.4, 5.5**
 
-  - [ ] 9.3 Implement feedback service
+  - [x] 9.3 Implement feedback service
     - Create `/internal/service/feedback_service.go` with FeedbackService interface and implementation
     - Inject FeedbackRepository
     - Implement Submit: validate text length (1-1000) and rating (1-5), store with timestamp
@@ -222,7 +222,7 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Generate random valid feedback, submit, verify stored data matches input exactly
     - **Validates: Requirements 7.1**
 
-  - [ ] 9.5 Implement admin service
+  - [x] 9.5 Implement admin service
     - Create `/internal/service/admin_service.go` with AdminService interface and implementation
     - Inject CustomerRepository, BalanceRepository, TransactionRepository, RequestRepository, FeedbackRepository, LoginHistoryRepository, AccountRepository
     - Implement ListCustomers, AdjustBalance (credit/debit with transaction record), ListTransactions, ListRequests, ListFeedback, ListLoginHistory
@@ -234,7 +234,7 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Generate random adjustment scenarios; verify resulting balance = previous ± amount; verify debit rejection when insufficient
     - **Validates: Requirements 9.2, 9.3, 9.4**
 
-- [ ] 10. Checkpoint - Ensure all service layer tests pass
+- [x] 10. Checkpoint - Ensure all service layer tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 11. Middleware layer
