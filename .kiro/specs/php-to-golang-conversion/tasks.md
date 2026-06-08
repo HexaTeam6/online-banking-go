@@ -335,8 +335,8 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Use httptest.ResponseRecorder and mocked services
     - _Requirements: 13.3, 13.4, 13.5_
 
-- [ ] 13. Router setup and application wiring
-  - [ ] 13.1 Implement main.go with DI wiring and router setup
+- [x] 13. Router setup and application wiring
+  - [x] 13.1 Implement main.go with DI wiring and router setup
     - Create `/cmd/api/main.go`
     - Load config, initialize DB connection with retry logic (3 attempts, 5s interval)
     - Initialize all repositories, services, handlers with constructor injection
@@ -351,8 +351,8 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Verify protected routes return 401 without token
     - _Requirements: 11.7_
 
-- [ ] 14. Database migrations
-  - [ ] 14.1 Create migration files
+- [x] 14. Database migrations
+  - [x] 14.1 Create migration files
     - Create `/migrations/000001_initial_schema.up.sql`: full schema from bank_db.sql with proper types
     - Create `/migrations/000001_initial_schema.down.sql`: DROP TABLE statements
     - Create `/migrations/000002_alter_password_columns.up.sql`: ALTER password columns to VARCHAR(72)
@@ -371,7 +371,7 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Verify running migrations twice produces no errors or duplicate changes; verify plaintext passwords < 60 chars get hashed, passwords already 60 chars are unchanged
     - **Validates: Requirements 12.4, 12.7**
 
-- [ ] 15. Checkpoint - Full build verification
+- [x] 15. Checkpoint - Full build verification
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 16. Integration tests and login history
