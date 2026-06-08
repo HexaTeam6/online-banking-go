@@ -279,8 +279,8 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Test CORS headers present in response
     - _Requirements: 8.4, 10.3, 10.6, 10.7_
 
-- [ ] 12. Handler layer
-  - [ ] 12.1 Implement auth handlers
+- [x] 12. Handler layer
+  - [x] 12.1 Implement auth handlers
     - Create `/internal/handler/auth_handler.go`
     - POST /api/v1/auth/login: parse LoginRequest, call AuthService.CustomerLogin, return token in success envelope
     - POST /api/v1/auth/logout: extract claims from context, call AuthService.CustomerLogout
@@ -288,32 +288,32 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - POST /api/v1/admin/auth/login: parse LoginRequest, call AuthService.AdminLogin, return token
     - _Requirements: 1.1, 1.2, 1.4, 2.1, 8.1_
 
-  - [ ] 12.2 Implement dashboard and transaction handlers
+  - [x] 12.2 Implement dashboard and transaction handlers
     - Create `/internal/handler/dashboard_handler.go`
     - GET /api/v1/dashboard: call DashboardService.GetDashboard
     - GET /api/v1/transactions: parse pagination params, call DashboardService.GetTransactionHistory
     - _Requirements: 3.1, 3.2, 3.3_
 
-  - [ ] 12.3 Implement transfer handler
+  - [x] 12.3 Implement transfer handler
     - Create `/internal/handler/transfer_handler.go`
     - POST /api/v1/transfers: parse TransferRequest, extract sender from context, call TransferService.QuickTransfer
     - _Requirements: 4.1_
 
-  - [ ] 12.4 Implement request handlers
+  - [x] 12.4 Implement request handlers
     - Create `/internal/handler/request_handler.go`
     - POST /api/v1/requests: parse CreateMoneyRequest, call RequestService.CreateRequest
     - GET /api/v1/requests/received: call RequestService.GetReceivedRequests
     - PATCH /api/v1/requests/{id}/viewed: call RequestService.MarkAsViewed
     - _Requirements: 5.1, 5.6, 5.7_
 
-  - [ ] 12.5 Implement profile, feedback, login-history handlers
+  - [x] 12.5 Implement profile, feedback, login-history handlers
     - Create `/internal/handler/account_handler.go`: GET /api/v1/profile, PUT /api/v1/profile
     - Create `/internal/handler/feedback_handler.go`: POST /api/v1/feedback
     - Create `/internal/handler/health_handler.go`: GET /health (verify DB connectivity, return 200/503)
     - Create `/internal/handler/login_history_handler.go`: GET /api/v1/login-history
     - _Requirements: 6.1, 6.2, 7.1, 11.4, 14.1_
 
-  - [ ] 12.6 Implement admin handlers
+  - [x] 12.6 Implement admin handlers
     - Create `/internal/handler/admin_handler.go`
     - GET /api/v1/admin/customers: call AdminService.ListCustomers
     - POST /api/v1/admin/balance-adjustment: call AdminService.AdjustBalance
