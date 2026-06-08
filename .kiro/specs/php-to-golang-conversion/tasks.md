@@ -237,8 +237,8 @@ This implementation plan converts the PHP online banking monolith into a modern 
 - [x] 10. Checkpoint - Ensure all service layer tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 11. Middleware layer
-  - [ ] 11.1 Implement JWT authentication middleware
+- [x] 11. Middleware layer
+  - [x] 11.1 Implement JWT authentication middleware
     - Create `/internal/middleware/auth.go`
     - Extract Bearer token from Authorization header
     - Validate token using TokenManager, inject claims into request context
@@ -246,7 +246,7 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Implement role-checking middleware (RequireRole) that returns 403 for insufficient permissions
     - _Requirements: 1.8, 3.4, 4.9, 5.8, 6.4, 7.4, 8.4, 8.6_
 
-  - [ ] 11.2 Implement rate limiting middleware
+  - [x] 11.2 Implement rate limiting middleware
     - Create `/internal/middleware/ratelimit.go`
     - Use `golang.org/x/time/rate` with per-IP token bucket
     - Configure 5 requests per 60-second window for auth endpoints
@@ -258,7 +258,7 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Simulate N requests from same IP; verify first 5 pass and subsequent get 429 with Retry-After
     - **Validates: Requirements 10.4, 10.5**
 
-  - [ ] 11.4 Implement CORS, content-type, body-limit, logging, and timeout middleware
+  - [x] 11.4 Implement CORS, content-type, body-limit, logging, and timeout middleware
     - Create `/internal/middleware/cors.go`: configurable CORS headers from environment variables
     - Create `/internal/middleware/content_type.go`: reject non-JSON requests with 415
     - Create `/internal/middleware/body_limit.go`: reject bodies > 1MB with 413
