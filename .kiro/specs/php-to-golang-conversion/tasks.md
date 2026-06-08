@@ -398,14 +398,14 @@ This implementation plan converts the PHP online banking monolith into a modern 
     - Test re-running migrations skips applied ones
     - _Requirements: 12.5, 12.6, 12.7_
 
-- [ ] 17. Generate mocks and finalize test infrastructure
-  - [ ] 17.1 Generate mock implementations
+- [x] 17. Generate mocks and finalize test infrastructure
+  - [x] 17.1 Generate mock implementations
     - Run `mockgen` for all repository interfaces, PasswordHasher, TokenManager
     - Place generated mocks in `/test/mock/`
     - Ensure all service tests use generated mocks
     - _Requirements: 11.7_
 
-- [ ] 18. Final checkpoint - Ensure all tests pass and build succeeds
+- [x] 18. Final checkpoint - Ensure all tests pass and build succeeds
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes
